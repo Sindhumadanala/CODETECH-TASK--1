@@ -1,0 +1,90 @@
+// VERILOG CODE -----------------------------------------------------------------------------------------------------------------------------------------------------------
+module alu (
+    input  [3:0] a,
+    input  [3:0] b,
+    input  [2:0] sel,    // Operation select
+    output reg [3:0] out
+);
+
+always @(*) begin
+    case (sel)
+        3'b000: out = a + b;      // Addition
+        3'b001: out = a - b;      // Subtraction
+        3'b010: out = a & b;      // AND
+        3'b011: out = a | b;      // OR
+        3'b100: out = ~a;         // NOT (on a only)
+        default: out = 4'b0000;   // Default output
+    endcase
+end
+
+endmodule
+
+//TEST BENCH-------------------------------------------------------------------------------------------------------------------------------------------------------------
+`timescale 1ns / 1ps
+
+module alu_tb;
+
+reg [3:0] a, b;
+reg [2:0] sel;
+wire [3:0] out;
+
+alu uut (
+    .a(a),
+    .b(b),
+    .sel(sel),
+    .out(out)
+);
+
+initial begin
+    $display("SEL |  A  |  B  |  OUT  | Operation");
+    $display("-------------------------------------");
+    
+    // Test Addition
+    a = 4'd5; b = 4'd3; sel = 3'b000; #10;
+    $display("%b  | %d | %d | %d  | ADD", sel, a, b, out);
+    
+    // Test Subtraction
+    a = 4'd9; b = 4'd4; sel = 3'b001; #10;
+    $display("%b  | %d | %d | %d  | SUB", sel, a, b, out);
+
+    // Test AND
+    a = 4'b1010; b = 4'b1100; sel = 3'b010; #10;
+    $display("%b  | %b | %b | %b  | AND", sel, a, b, out);
+
+    // Test OR
+    a = 4'b1010; b = 4'b1100; sel = 3'b011; #10;
+    $display("%b  | %b | %b | %b  | OR", sel, a, b, out);
+
+    // Test NOT
+    a = 4'b1010; b = 4'bxxxx; sel = 3'b100; #10;
+    $display("%b  | %b |  X  | %b  | NOT", sel, a, out);
+
+    // Done
+    $finish;
+end
+
+endmodule
+
+// SIMULATION REPORT----------------------------------------------------------------------------------------------------------------------------------------------------
+# Simulation Report for Basic ALU
+
+## Operations Tested
+
+| SEL    |   A   |   B   |   OUT   | Operation    |
+|--------|-------|-------|---------|--------------|
+| 000    |  5    |  3    |   8     | ADD          |
+| 001    |  9    |  4    |   5     | SUB          |
+| 010    | 1010  | 1100  | 1000    | AND          |
+| 011    | 1010  | 1100  | 1110    | OR           |
+| 100    | 1010  |   X   | 0101    | NOT (on A)   |
+
+## Summary
+
+- The ALU correctly performs all specified operations.
+- Results match expected values for each operation.
+- The NOT operation is performed only on operand A.
+
+## Notes
+
+- Inputs and expected outputs can be extended for more exhaustive testing.
+- The ALU can be expanded for more operations or wider data widths as required.
