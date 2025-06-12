@@ -1,14 +1,14 @@
-**NAME **: Madanala Sindhuja
+**NAME ** : Madanala Sindhuja
 **COMPANY** : CODTECH IT SOLUTIONS
 **INTERN ID** :CT04DF2029
-**DOMAIN **: VLSI
+**DOMAIN ** : VLSI
 **DURATION** : MAY to JUNE 2025
 
 
 **---------------------------------------------------------------------------------------------OVERVIEW OF THE PROJECT---------------------------------------------------------------------------------------**
 **(Arithmetic Logic Unit - ALU)**: An ALU is a core component of a central processing unit (CPU). It performs all arithmetic operations (like addition and subtraction) and all logical operations (like AND, OR, NOT). It takes operands (data to be operated on) and a control signal (indicating which operation to perform) as inputs, and produces a result along with status flags (e.g., carry, zero, overflow). The complexity of an ALU varies greatly depending on the processor it's designed for, from simple units in microcontrollers to highly complex ones in modern multi-core CPUs.
 
-**Objective****:** The primary objective of this project is to:
+**Objective** **:** The primary objective of this project is to:
 
 **Design a basic ALU capable of performing the following operations:**
 Addition
