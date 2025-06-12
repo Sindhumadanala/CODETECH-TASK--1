@@ -1,7 +1,7 @@
-**NAME ** : Madanala Sindhuja
+**NAME** : Madanala Sindhuja
 **COMPANY** : CODTECH IT SOLUTIONS
 **INTERN ID** :CT04DF2029
-**DOMAIN ** : VLSI
+**DOMAIN** : VLSI
 **DURATION** : MAY to JUNE 2025
 
 
@@ -18,8 +18,7 @@ OR (bitwise)
 NOT (bitwise)
 **Key Activities**: Based on the "Deliverable" section, the key activities would include:
 
-**Design Phase:
-**
+**Design Phase:**
 Understanding the functional requirements for each specified operation (addition, subtraction, AND, OR, NOT).
 Developing the high-level architecture of the ALU (e.g., how to select operations, input/output structures).
 Designing the logic gates and circuits for each individual operation.
